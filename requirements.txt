@@ -5,7 +5,7 @@ json
 urllib.request
 urlopen
 numpy
-streamlit as st
+streamlit
 dash
 dash_table
 dash.dependencies
