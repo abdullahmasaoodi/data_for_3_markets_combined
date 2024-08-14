@@ -1,16 +1,7 @@
 requests
 pandas
-json_normalize
-json
-urllib.request
-urlopen
 numpy
 streamlit
 dash
 dash_table
-dash.dependencies
-Input
-Output
-dash_core_components
-dash_html_components
 gunicorn
