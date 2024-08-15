@@ -11,7 +11,7 @@ import dash_table
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-
+import os
 
 
 #################################################################################    KSA        ########################################################################################################
@@ -108,5 +108,8 @@ app.layout = html.Div([
     )
 ])
 
+
 if __name__ == '__main__':
-    app.run_server(port=8053, debug=False)
+    port = int(os.environ.get("PORT", 8055))
+    app.run_server(port=port, debug=False)
+
