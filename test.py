@@ -364,4 +364,13 @@ html_table = the_final_resulted_df.to_html(index=False, border=0)
 
 
 ######################################################################################## showing_the_final_resulted_df_at_web_page  ###########################################################################################################
-st.markdown(html_table, unsafe_allow_html=True)
+st.dataframe(the_final_resulted_df)
+
+# Provide a CSV download link
+csv = the_final_resulted_df.to_csv(index=False)
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='my_dataframe.csv',
+    mime='text/csv',
+)
