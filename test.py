@@ -356,7 +356,6 @@ summary_df_qatar_market = summary_df_qatar_market.rename(columns={
 the_final_resulted_df = pd.concat(
     [summary_combined_all_saudi_dfs, summary_df_of_UAE_dubai_and_abu_dhabi, summary_df_qatar_market])
 the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].str.replace('[^\d.]', '', regex=True)
-the_final_resulted_df['آخر سعر'] = pd.to_numeric(the_final_resulted_df['آخر سعر'], errors='coerce')
 the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].astype(float)
 
 
