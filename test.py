@@ -359,7 +359,7 @@ the_final_resulted_df['الرمز'] = the_final_resulted_df['الرمز'].astype
 
 
 the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].str.strip()
-the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].str.replace(r'[^\d.]', '', regex=True)
+# the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].str.replace(r'[^\d.]', '', regex=True)
 # the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].str.replace(',', '')
 
 
