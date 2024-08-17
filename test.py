@@ -7,7 +7,6 @@ from urllib.request import urlopen
 import numpy as np
 import streamlit as st
 
-app = Flask(__name__)
 #################################################################################    KSA        ########################################################################################################
 
 # main_saudi_stocks
