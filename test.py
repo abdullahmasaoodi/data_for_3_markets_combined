@@ -359,6 +359,9 @@ the_final_resulted_df = pd.concat(
 the_final_resulted_df['الرمز'] = the_final_resulted_df['الرمز'].astype(str)
 the_final_resulted_df['آخر سعر'] = the_final_resulted_df['آخر سعر'].astype(float)
 
+# Convert DataFrame to HTML table
+html_table = the_final_resulted_df.to_html(index=False, border=0)
+
 
 ######################################################################################## showing_the_final_resulted_df_at_web_page  ###########################################################################################################
-st.dataframe(the_final_resulted_df)
+st.markdown(html_table, unsafe_allow_html=True)
