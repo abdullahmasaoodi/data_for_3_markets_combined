@@ -30,7 +30,7 @@ whole_df_saudi_funds["market_type"] = "صناديق"
 whole_df_saudi_funds["market"] = "السوق السعودي"
 whole_df_saudi_funds["sectorName"] = "-"
 summary_df_saudi_funds = whole_df_saudi_funds[
-    ["companyUrl", "fundName", "fundCode", "unitPrice", "market", "market_type"]]
+    ["companyUrl", "fundName", "symbol", "unitPrice", "market", "market_type"]]
 
 # parallel_saudi_stocks
 url_parallel_saudi_stocks = "https://www.saudiexchange.sa/wps/portal/saudiexchange/ourmarkets/nomuc-market-watch/!ut/p/z1/lZDLDoIwEEW_xQVb5ooBG3eNRo0vQGLEbgwarCRATa3y-xJd-dbZzeSc5M4lQTGJMjlnMjGZKpO83lfCW7vcgzNk8Fmv10XYH7PhCL6DJmj5AEwHHsIZD32n7QKRQ-IvH1Hg1kAwbU0wxwDebz7eDMd3Xzwgzx_cAy8iXoEPGUYkZK42tz55uWkxSUKnu1Sn2j7p-rw35nDsWLBQVZUtlZJ5am9VYeGVsldHQ_E9SVGi6VAsFjGyoFgyw3ijcQE05jai/p0/IZ7_IPG41I82KGASC06S67RB9A0041=CZ6_5A602H80O8DDC0QFK8HJ0O2010=NJgetMainNomucMarketDetails=/?sectorParameter=&tableViewParameter=1&iswatchListSelected=NO&requestLocale=ar&_=1710619161193"
@@ -68,7 +68,7 @@ summary_df_main_saudi_stocks = summary_df_main_saudi_stocks.rename(columns={
 summary_df_saudi_funds = summary_df_saudi_funds.rename(columns={
     "companyUrl": "الرابط",
     "fundName": "الاسم",
-    "fundCode": "الرمز",
+    "symbol": "الرمز",
     "unitPrice": "آخر سعر",
     "market": "السوق",
     "market_type": "نوع الجهة"
@@ -355,7 +355,7 @@ summary_df_qatar_market = summary_df_qatar_market.rename(columns={
 ######################################################################################## the_final_resulted_df  ###########################################################################################################
 the_final_resulted_df = pd.concat(
     [summary_combined_all_saudi_dfs, summary_df_of_UAE_dubai_and_abu_dhabi, summary_df_qatar_market])
-the_final_resulted_df['الرمز'] = the_final_resulted_df['الرمز'].astype(object)
+the_final_resulted_df['الرمز'] = the_final_resulted_df['الرمز'].astype(str)
 
 ######################################################################################## showing_the_final_resulted_df_at_web_page  ###########################################################################################################
 st.dataframe(the_final_resulted_df)
