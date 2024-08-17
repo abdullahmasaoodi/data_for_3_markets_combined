@@ -7,6 +7,8 @@ from urllib.request import urlopen
 import numpy as np
 import streamlit as st
 
+
+
 #################################################################################    KSA        ########################################################################################################
 
 # main_saudi_stocks
@@ -83,8 +85,9 @@ summary_df_saudi_bonds_and_sukuk = summary_df_saudi_bonds_and_sukuk.rename(colum
 })
 
 #### combining all DFs  from saudi markets ################
-
 summary_combined_all_saudi_dfs = pd.concat([summary_df_main_saudi_stocks,summary_df_saudi_funds,summary_df_parallel_saudi_stocks,summary_df_saudi_bonds_and_sukuk])
+summary_combined_all_saudi_dfs["الدولة"] =  "السعودية"
+
 
 
 
@@ -265,8 +268,6 @@ whole_df_abu_dhabi_market["SectorArb"] = np.where(
 )
 
 
-
-whole_df_abu_dhabi_market["cUrl"] = ""
 summary_df_abu_dhabi_market = whole_df_abu_dhabi_market[["ARBCOMPANYNAME", "Symbol", "Last",  "market"]]
 
 #this step for renaming the abo dhabai df to be matching the dubai df
@@ -284,7 +285,6 @@ summary_df_abu_dhabi_market = summary_df_abu_dhabi_market.rename(columns={
 # Combined data for UAE markets
 
 summary_df_of_UAE_dubai_and_abu_dhabi = pd.concat([summary_df_abu_dhabi_market,summary_of_2DFs_dubai_market])
-
 summary_df_of_UAE_dubai_and_abu_dhabi = summary_df_of_UAE_dubai_and_abu_dhabi.rename(columns={
     "fullName" : "الاسم",
     "id" : "الرمز",
@@ -292,6 +292,8 @@ summary_df_of_UAE_dubai_and_abu_dhabi = summary_df_of_UAE_dubai_and_abu_dhabi.re
     "market" : "السوق",
     "securityType" : "نوع الجهة"
 })
+summary_df_of_UAE_dubai_and_abu_dhabi["الدولة"] =  "الإمارات"
+
 
 
 #################################################################################    QATAR        ########################################################################################################
@@ -323,6 +325,7 @@ data_qatar_markets = response_qatar_markets.json()
 whole_df_qatar_market = pd.DataFrame(data_qatar_markets['rows'])
 whole_df_qatar_market["market"] =  "سوق قطر المالي"
 
+
 whole_df_qatar_market.loc[whole_df_qatar_market["CompType"] == "COMP", "market_type"] = "الأسهم - السوق الرئيسية"
 whole_df_qatar_market.loc[whole_df_qatar_market["CompType"] == "BOND", "market_type"] = "الصكوك و السندات"
 whole_df_qatar_market.loc[whole_df_qatar_market["CompType"] == "ETF", "market_type"] = "صناديق"
@@ -337,6 +340,8 @@ summary_df_qatar_market = summary_df_qatar_market.rename(columns={
     "market" : "السوق",
     "market_type" : "نوع الجهة"
 })
+summary_df_qatar_market["الدولة"] =  "قطر "
+
 
 
 ######################################################################################## the_final_resulted_df  ###########################################################################################################
